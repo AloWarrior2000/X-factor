@@ -30,131 +30,164 @@ def heron(x,y,z):
     s = (x+y+z)/2
     return (s*(s-a)*(s-b)*(s-c))**(1/2)
 
-def AreaRectangulo (base, altura):
+def AreaRectangulo(base, altura):
     return (base * altura)
 
-def AreaCircunferencia (radio):
-    return (2*pi*(radio**2))
+def AreaCircunferencia(r):
+    return (pi*(r**2))
 
-def AreaCilindro (radio, altura)
+def AreaCilindro(radio, altura):
     a = (2*radio*altura*pi)+(2*(pi*(radio**2)))
-    return (a) 
+    return (a)
 
 reset = 0
-print("Operaciones disponibles : ")
+calc_on=1
+
+while calc_on==1:
+    print("Operaciones disponibles : ")
     # Despues de aqui se ponen las funciones que se han creado
-print(" -Teorema de Pitágoras")
-print(" -Conversión de temperatura")
-print(" -Fórmula de Herón")
-print(" -Área circunferencia")
-print(" -Área cilindro")
-print(" -Área rectángulo")
-operacion=input("¿Que operación deseas realizar? Por favor escribir como indican las opciones: ")
+    print(" -Operaciones básicas")
+    print(" -Teorema de Pitágoras")
+    print(" -Conversión de temperatura")
+    print(" -Fórmula de Herón")
+    print(" -Área circunferencia")
+    print(" -Área cilindro")
+    print(" -Área rectángulo")
 
-if operacion == "Teorema de Pitágoras":
-    while reset == 0:
-        type_of_pitagoras = input("¿Trabajaremos con dos catetos o con un cateto y una hipotenusa? (Escribe cc o ch) : ")
-        if type_of_pitagoras == "ch":
-            c = float(input("Dime el cateto : "))
-            h = float(input("Dime la hipotenusa : "))
-            reset = 1
-            rpta = pitagch(h,c)
-        elif type_of_pitagoras == "cc":
-            c1 = float(input("Dime un cateto : "))
-            c2 = float(input("Dime otro cateto : "))
-            rpta = pitagcc(c1,c2)
-            reset = 1
-        else:
-            print ("Por favor limitarse a responder con las opciones dadas")
-            reset = 0
+    operacion=input("¿Que operación deseas realizar? Por favor escribir como indican las opciones: ")
 
-
-if operacion== "Conversión de temperatura":
-    temp=input("¿Qué temperatura tienes? (Celsius:c, kelvin:k, fahrenheit:f): ")
-    while reset==0:
-        if temp== "c":
-            a=input("¿A qué lo quieres pasar? (Kelvin:k, fahrenheit:f): ")
-            if a=="k":
-                t=float(input("Dime la temperatura en Celsius: "))
-                rpta=cak(t)
-                reset=1
-            if a=="f":
-                t=float(input("Dime la temperatura en Celsius: "))
-                rpta=caf(t)
-                reset=1
+    if operacion == "Teorema de Pitágoras":
+        while reset == 0:
+            type_of_pitagoras = input("¿Trabajaremos con dos catetos o con un cateto y una hipotenusa? (Escribe cc o ch) : ")
+            if type_of_pitagoras == "ch":
+                c = float(input("Dime el cateto : "))
+                h = float(input("Dime la hipotenusa : "))
+                reset = 1
+                rpta = pitagch(h,c)
+            elif type_of_pitagoras == "cc":
+                c1 = float(input("Dime un cateto : "))
+                c2 = float(input("Dime otro cateto : "))
+                rpta = pitagcc(c1,c2)
+                reset = 1
             else:
-                print("Por favor limitarse a responder con las opciones dadas")
-                reset=0
-        if temp==k:
-            a=input("¿A qué lo quieres pasar? (Celsius:c, fahrenheit:f): ")
-            if a=="c":
-                t=float(input("Dime la temperatura en Kelvin: "))
-                rpta=kac(t)
-                reset=1
-            if a=="f":
-                t=float(input("Dime la temperatura en Kelvin: "))
-                rpta=kaf(t)
-                reset=1
-            else:
-                print("Por favor limitarse a responder con las opciones dadas")
-                reset=0
-        if temp==f:
-            a=input("¿A qué lo quieres pasar? (Kelvin:k, celsius:c): ")
-            if a=="k":
-                t=float(input("Dime la temperatura en Fahrenheit: "))
-                rpta=fak(t)
-                reset=1
-            if a=="c":
-                t=float(input("Dime la temperatura en Fahrenheit: "))
-                rpta=fac(t)
-                reset=1
-            else:
-                print ("Porfavor limitarse a responder con las opciones dadas")
+                print ("Por favor limitarse a responder con las opciones dadas")
                 reset = 0
 
-if operacion=="Fórmula de Herón":
-    a = int(input("Dime uno de los lados de el triángulo : "))
-    b = int(input("Dime otro de los lados de el triángulo : "))
-    c = int(input("Dime el último lado de el triángulo : "))
-    rpta = heron(a,b,c)
 
-if operacion == "Área rectángulo":
-    base = float(input("Ingrese la base del rectangulo: "))
-    altura = float(input("Ingrese la altura del rectangulo: "))
-    rpta = AreaRectangulo(base, altura)   
+    if operacion== "Conversión de temperatura":
+        temp=input("¿Qué temperatura tienes? (Celsius:c, kelvin:k, fahrenheit:f): ")
+        while reset==0:
+            if temp== "c":
+                a=input("¿A qué lo quieres pasar? (Kelvin:k, fahrenheit:f): ")
+                if a=="k":
+                    t=float(input("Dime la temperatura en Celsius: "))
+                    rpta=cak(t)
+                    reset=1
+                elif a=="f":
+                    t=float(input("Dime la temperatura en Celsius: "))
+                    rpta=caf(t)
+                    reset=1
+                else:
+                    print("Por favor limitarse a responder con las opciones dadas")
+                    reset=0
+            elif temp==k:
+                a=input("¿A qué lo quieres pasar? (Celsius:c, fahrenheit:f): ")
+                if a=="c":
+                    t=float(input("Dime la temperatura en Kelvin: "))
+                    rpta=kac(t)
+                    reset=1
+                elif a=="f":
+                    t=float(input("Dime la temperatura en Kelvin: "))
+                    rpta=kaf(t)
+                    reset=1
+                else:
+                    print("Por favor limitarse a responder con las opciones dadas")
+                    reset=0
+            elif temp==f:
+                a=input("¿A qué lo quieres pasar? (Kelvin:k, celsius:c): ")
+                if a=="k":
+                    t=float(input("Dime la temperatura en Fahrenheit: "))
+                    rpta=fak(t)
+                    reset=1
+                if a=="c":
+                    t=float(input("Dime la temperatura en Fahrenheit: "))
+                    rpta=fac(t)
+                    reset=1
+                else:
+                    print ("Porfavor limitarse a responder con las opciones dadas")
+                    reset = 0
 
-if operacion == "Área circunferencia":
-    radio = float(input("Ingrese el radio de la circunferencia: ")
-    rpta = AreaCircunferencia(radio)
-                                         
-if operacion == "Área cilindro":
-    radio = float(input("Ingrese el radio del cilindro: ")
-    altura = float(input("Ingrese la altura del cilindro: ")
-    rpta = AreaCilindro (radio, altura)
+    if operacion=="Fórmula de Herón":
+        a = int(input("Dime uno de los lados de el triángulo : "))
+        b = int(input("Dime otro de los lados de el triángulo : "))
+        c = int(input("Dime el último lado de el triángulo : "))
+        rpta = heron(a,b,c)
 
-print("La respuesta es {rpta}")                  
+    if operacion == "Área rectángulo":
+        base = float(input("Ingrese la base del rectangulo: "))
+        altura = float(input("Ingrese la altura del rectangulo: "))
+        rpta = AreaRectangulo(base, altura)
 
-sum1=float(input("Ingrese el primer sumando: "))
-sum2=float(input("Ingrese el segundo sumando: "))
-suma=sum1+sum2
-print(str(suma))
-                   
-minu=float(input("Ingrese el minuendo: "))
-sus=float(input("Ingrese el sustraendo: "))
-diferencia=minu-sus
-print(str(diferencia))
-      
-fac1=float(input("Ingrese el primer factor: "))
-fac2=float(input("Ingrese el segundo factor: "))
-producto=fac1*fac2
-print(str(producto))
-                 
-divid=float(input("Ingrese el dividendo: "))
-divis=float(input("Ingrese el divisor: "))
-cociente=divid//divis
-print(str(cociente))
-                   
-bas=float(input("Ingrese la base: "))
-exp=float(input("Ingrese el exponente: "))
-potencia=bas**exp
-print(str(potencia))
+    if operacion == "Área circunferencia":
+        radio = float(input("Ingrese el radio de la circunferencia: "))
+        rpta = AreaCircunferencia(radio)
+
+    if operacion == "Área cilindro":
+        radio = float(input("Ingrese el radio del cilindro: "))
+        altura = float(input("Ingrese la altura del cilindro: "))
+        rpta = AreaCilindro (radio, altura)
+
+    if operacion == "Operaciones básicas":
+        print("Opciones :")
+        print(  "-Adición")
+        print(  "-Diferencia")
+        print(  "-Multiplicación")
+        print(  "-División")
+        print(  "-Potenciación")
+        type_of_basics = input("¿Que operación básica vas a usar? : ")
+        if type_of_basics == "Adición":
+            sum1=float(input("Ingrese el primer sumando: "))
+            sum2=float(input("Ingrese el segundo sumando: "))
+            rpta=sum1+sum2
+
+        if type_of_basics == "Diferencia":
+            minu=float(input("Ingrese el minuendo: "))
+            sus=float(input("Ingrese el sustraendo: "))
+            rpta=minu-sus
+
+        if type_of_basics == "Multiplicación":
+            fac1=float(input("Ingrese el primer factor: "))
+            fac2=float(input("Ingrese el segundo factor: "))
+            rpta=fac1*fac2
+
+        if type_of_basics == "División":
+            divid=float(input("Ingrese el dividendo: "))
+            divis=float(input("Ingrese el divisor: "))
+            coci=divid//divis
+            rest=divid%divis
+            print(f"El cociente de la división es {coci} y el residuo es {rest}")
+            rpta=divid/divis
+
+        if type_of_basics == "Potenciación":
+            bas=float(input("Ingrese la base: "))
+            exp=float(input("Ingrese el exponente: "))
+            rpta=bas**exp
+
+    print(" ")
+    print(f"La respuesta final es {rpta}")
+    preg = 1
+    while preg == 1:
+        print(" ")
+        ask = input("Desea hacer otra operación (SI o NO) : ")
+
+        if ask == "NO":
+            calc_on = 0
+            preg = 0
+        elif ask == "SI":
+            calc_on = 1
+            preg = 0
+        else:
+            preg = 1
+
+
+
